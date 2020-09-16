@@ -14,7 +14,7 @@ export class App extends Component {
       {
         id:2,
         title:'egg',
-        completed: true
+        completed: false
       },
       {
         id:3,
@@ -23,11 +23,23 @@ export class App extends Component {
       },
     ]
   }
+
+  // Toggle checked List Item
+  markComplete = (id) => {
+    this.setState({ lists: this.state.lists.map(
+      list => {
+        if (list.id === id) {
+          list.completed = !list.completed
+        }
+        return list;
+      }
+    )})
+  }
   
   render() {
       return (
           <div>
-           <List lists={this.state.lists} /> 
+           <List lists={this.state.lists} markComplete={this.markComplete} /> 
           </div>
       )
   }

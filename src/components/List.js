@@ -8,7 +8,9 @@ export class List extends Component {
         return (
            this.props.lists.map(
                (list) => (
-                   <ListItem key={list.id} list={list}/>
+                   <ListItem key={list.id} list={list}
+                   markComplete={this.props.markComplete}
+                   />
                )
            )
         )
